@@ -7,17 +7,16 @@
     event QueueTransaction(bytes32 indexed txHash, address indexed target, uint value, string signature, bytes data, uint eta);
 */
 
-const listeners = [
-    "NewAdmin(address)", 
-    "NewPendingAdmin(address)",
-    "NewDelay(uint)",
-    "CancelTransaction(bytes32, address, uint, string, bytes, uint)",
-    "ExecuteTransaction(bytes32, address, uint, string, bytes, uint)",
-    "QueueTransaction(bytes32, address, uint, string, bytes, uint)"
-];
+
+const events = ["NewAdmin", 
+                "NewPendingAdmin",
+                "NewDelay",
+                "CancelTransaction",
+                "ExecuteTransaction",
+                "QueueTransaction"]
 
 function listener(...args) {
-    console.log("listener:", args);
+    console.log("timelock listener:", args);
 }
 
 module.exports = {

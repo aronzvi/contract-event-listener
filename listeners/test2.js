@@ -6,13 +6,17 @@ function listener(...args) {
     console.log(eventObj);
    
     let event = eventObj.event;
-    console.log("got event:", event, "num args:", numArgs);
-    if (event == "Test2Ev1") {
-        console.log("got Test2Ev1");
-        console.log("address: ", eventObj.args["_from"],  "value: ", eventObj.args["_from"]);
-    }
-    else if (event == "Test2Ev2") {
-       console.log("got Test2Ev2");
+    console.log("test2 listener: got event:", event);
+    switch(event) {
+        case "Test2Ev1":
+            console.log("got Test2Ev1");
+            console.log("address: ", eventObj.args["_from"],  "value: ", eventObj.args["_from"]);
+            break
+        case "Test2Ev2":
+            console.log("got Test2Ev2");
+            break
+        default:
+            console.error("unhandled event:", event)
     }
 }
 
