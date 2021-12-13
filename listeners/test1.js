@@ -1,3 +1,6 @@
+const Discord = require('discord.js');
+const client - new Discord.Client();
+
 const events = ["Ev1", "Ev2"];
 
 function listener(...args) {
