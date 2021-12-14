@@ -2,6 +2,7 @@ const discordClient = require("../discordclient");
 const events = ["Transfer"];
 
 const channelId = "919977069625106523";
+const fetchChannel = discordClient.fetchChannel(channelId);
 
 function listener(...args) {
     let numArgs = args.length - 1;
@@ -14,7 +15,7 @@ function listener(...args) {
       case "Transfer":
         console.log("Busd Transfer event!")
           // channel is cached
-          discordClient.fetchChannel(channelId).then(channel => {
+          fetchChannel.then(channel => {
             channel.send(JSON.stringify(eventObj.transactionHash + ": " + "from: " + args[0] + " to: " + args[1] + " value: " + args[2]));
           });
 
