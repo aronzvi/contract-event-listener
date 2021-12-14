@@ -2,9 +2,8 @@ const discordClient = require("../discordclient");
 const events = ["Transfer"];
 
 const channelId = "918516059336749131";
-const fetchChannel = discordClient.fetchChannel(channelId);
 
-function listener(...args) {
+async function listener(...args) {
     let numArgs = args.length - 1;
     let eventObj = args[numArgs];
     //console.log(eventObj);                                                           
@@ -14,13 +13,11 @@ function listener(...args) {
     switch(event) {
       case "Transfer":
         console.log("Cake Transfer event!")
-          fetchChannel.then(channel => {
-            channel.send(JSON.stringify(eventObj.transactionHash + ":" + eventObj.event));
-          });
-
+        let channel = await discordClient.fetchChannel(channelId);
+        channel.send(JSON.stringify(eventObj.transactionHash + ":" + eventObj.event));
         break;
       default:
-        console.error("unhandled event:", event)
+        console.error("unhandled event:", event);
     }
 }
 
