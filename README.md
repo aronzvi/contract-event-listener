@@ -19,3 +19,12 @@ Set the DISCORD_BOT_TOKEN environment variable with the Bot's token
 Use fetchChannel promise with desired channel ID to get the channel and send a message
 
 See cake\busd listeners for example usage
+
+
+## Heroku
+Set environment variables:
+heroku config:set PROVIDER_URL=...
+heroku config:set DISCORD_BOT_TOKEN=
+
+Run:
+heroku ps:scale worker=1
