@@ -1,7 +1,7 @@
 const discordClient = require("../discordclient");
 const events = ["EarlyWithdrawal"];
 
-const channelId = "919977069625106523";
+const channelId = "920661555589296218"; // reva-staking-events 
 
 async function listener(...args) {
     let numArgs = args.length - 1;
