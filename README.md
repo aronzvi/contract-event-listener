@@ -12,7 +12,8 @@ and
 https://discordjs.guide/preparations/adding-your-bot-to-servers.html
 
 
-Grant Send Messages and View Channels persmissions
+Grant Send Messages and View Channels persmissions.
+If channel is private then need to add access for the bot directly in the channel permissions settings
 
 Set the DISCORD_BOT_TOKEN environment variable with the Bot's token
 
