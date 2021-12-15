@@ -9,7 +9,7 @@ async function listener(...args) {
     //console.log(eventObj);
    
     let event = eventObj.event;
-    console.log("Busd listener: got event:", event, "num args:", numArgs);
+    console.log("RevaStakingPool listener: got event:", event, "num args:", numArgs);
     switch(event) {
       case "EarlyWithdrawal":
         console.log("RevaStakingPool EarlyWithdrawal event!")
