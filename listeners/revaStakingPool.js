@@ -1,5 +1,5 @@
 const discordClient = require("../discordclient");
-const events = ["EarlyWithdrawal"];
+const events = ["EarlyWithdrawal", "Deposit"];
 
 const channelId = "920661555589296218"; // reva-staking-events 
 
@@ -9,11 +9,15 @@ async function listener(...args) {
     //console.log(eventObj);
    
     let event = eventObj.event;
+    let channel = await discordClient.fetchChannel(channelId);
     console.log("RevaStakingPool listener: got event:", event, "num args:", numArgs);
     switch(event) {
       case "EarlyWithdrawal":
         console.log("RevaStakingPool EarlyWithdrawal event!")
-        let channel = await discordClient.fetchChannel(channelId);
+        channel.send(JSON.stringify(eventObj));
+        break;
+      case "Deposit":
+        console.log("RevaStakingPool Deposit event!")
         channel.send(JSON.stringify(eventObj));
         break;
       default:
